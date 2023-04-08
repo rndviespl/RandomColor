@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random Color Generator</title>
+        <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+    
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+        }
+    
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+    
+        .color-box {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(1, 0, 0, 0.3);
+        }
+    
+        .color-code {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    
+        .color-name {
+            color: #666;
+            font-size: 16px;
+            font-style: italic;
+            text-transform: capitalize;
+        }
+    
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+    
+        button:hover {
+            background-color: #555;
+        }
+       
+    </style>
+    </head>
+    <body>
+        <h1>Random Color Generator</h1>
+        <div class="container">
+            <div class="color-box" id="colorBox"></div>
+            <div class="color-code" id="colorCode"></div>
+            <button onclick="generateColor()">Generate Random Color</button>
+        </div>
+
+        <script>
+        function generateColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            var colorBox = document.getElementById('colorBox');
+            colorBox.style.backgroundColor = color;
+            var colorCode = document.getElementById('colorCode');
+            colorCode.innerHTML = color;         
+        }
+
+        function displayColor() {
+            generateColor();
+        }
+            
+    </script>
+    </body>
+</html>
